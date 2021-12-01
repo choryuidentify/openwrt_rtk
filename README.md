@@ -1,3 +1,3 @@
 # openwrt_rtk
 
-for Ubuntu 18.04
+for Ubuntu 20.04
