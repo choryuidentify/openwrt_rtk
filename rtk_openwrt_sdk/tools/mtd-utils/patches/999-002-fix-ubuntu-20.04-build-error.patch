@@ -1,0 +1,14 @@
+--- mtd-utils-1.4.5/mkfs.ubifs/mkfs.ubifs.c.orig	2021-12-02 02:37:40.949138166 +0900
++++ mtd-utils-1.4.5/mkfs.ubifs/mkfs.ubifs.c	2021-12-02 02:40:08.589010408 +0900
+@@ -865,8 +865,8 @@
+ 		if (ubi_leb_change_start(ubi, out_fd, lnum, c->leb_size, dtype))
+ 			return sys_err_msg("ubi_leb_change_start failed");
+ 
+-	if (llseek(out_fd, pos, SEEK_SET) != pos)
+-		return sys_err_msg("llseek failed seeking %lld",
++	if (lseek64(out_fd, pos, SEEK_SET) != pos)
++		return sys_err_msg("lseek64 failed seeking %lld",
+ 				   (long long)pos);
+ 
+ 	if (write(out_fd, buf, c->leb_size) != c->leb_size)
+
